@@ -4,7 +4,7 @@ export const Container = styled.div`
     width: 350px;
     height: 600px;
     margin: 20px auto;
-    border-radius: 8px;
+    border-radius: 16px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.208);
     padding: 0px;
     position: relative;
@@ -13,7 +13,7 @@ export const Container = styled.div`
 
 export const ContainerScroll = styled.div`
     width: 100%;
-    height: calc(100% - 120px);
+    height: calc(100% - 132px);
     overflow: auto;
     position: absolute;
     bottom: 16px;
@@ -24,6 +24,7 @@ export const ContainerScroll = styled.div`
 export const Header = styled.header`
     padding: 16px;
     background-color: blueviolet;
+    border-radius: 16px 16px 0 0;
 `;
 
 export const Row = styled.div`
@@ -48,7 +49,7 @@ export const TextInput = styled.input`
         flex: 1;
     }
     &:focus{
-        border-color: blueviolet;
+        border-color: #6720aa;
     }
 `;
 
@@ -67,16 +68,16 @@ export const Button = styled.button`
     justify-content: center;
     cursor: pointer;
     transition-duration: 300ms;
-    &:hover{
-        background-color: #6720aa;
-    }
     &.outlined{
-        border: none; //2px solid blueviolet;
+        border: 2px solid white;
         color: blueviolet;
         background-color: transparent;
     }
     &.rounded{
         border-radius: 100%;
+    }
+    &:hover{
+        background-color: #6720aa;
     }
 `;
 
