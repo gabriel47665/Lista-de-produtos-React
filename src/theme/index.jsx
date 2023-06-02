@@ -5,29 +5,36 @@ export const Container = styled.div`
     height: 600px;
     margin: 20px auto;
     border-radius: 8px;
-    box-shadow: 0 5px 25px #00000035;
-    padding: 16px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.208);
+    padding: 0px;
     position: relative;
+    background-color: #EDEDED;
 `;
 
 export const ContainerScroll = styled.div`
-    width: calc(100% - 32px);
+    width: 100%;
     height: calc(100% - 120px);
     overflow: auto;
     position: absolute;
     bottom: 16px;
-    left: 16px;
+    left: 0px;
+    padding: 16px;
+`;
+
+export const Header = styled.header`
+    padding: 16px;
+    background-color: blueviolet;
 `;
 
 export const Row = styled.div`
     width: 100%;
     display: flex;
     gap: 6px;
-    margin-bottom: 26px;
     &.list-item{
         margin-bottom: 6px;
         border-radius: 5px;
         box-shadow: 0 2px 10px #00000015;
+        background-color: white;
     }
 `;
 
@@ -52,14 +59,19 @@ export const Button = styled.button`
     text-align: center;
     color: #FFF;
     font-size: 24px;
-    border: 0;
+    border: 2px solid white;
     border-radius: 5px;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    transition-duration: 300ms;
+    &:hover{
+        background-color: #6720aa;
+    }
     &.outlined{
-        border: none; //2px solid blueviolet
+        border: none; //2px solid blueviolet;
         color: blueviolet;
         background-color: transparent;
     }

@@ -1,4 +1,4 @@
-import { Button, ContainerScroll, Row, TextH4, TextInput } from "../../theme";
+import { Button, ContainerScroll, Header, Row, TextH4, TextInput, } from "../../theme";
 import 'boxicons';
 import { useState } from 'react'
 
@@ -14,17 +14,19 @@ const Lista = () => {
 
     return(
         <> 
-            <Row>
-                <TextInput 
-                className="w100" 
-                type="text" 
-                value={item}
-                placeholder="Digite o nome do produto" 
-                onChange={(i) => setItem(i.target.value)}/>
-                <Button className="outlined" onClick={() => {setLista([...lista, item]); setItem('');}}>
-                    <box-icon name="plus-circle" color="blueviolet"></box-icon>
-                </Button>
-            </Row>
+            <Header>
+                <Row>
+                    <TextInput 
+                    className="w100" 
+                    type="text" 
+                    value={item}
+                    placeholder="Digite o nome do produto" 
+                    onChange={(i) => setItem(i.target.value)}/>
+                    <Button className="outlined" onClick={() => {setLista([...lista, item]); setItem('');}}>
+                        <box-icon name="plus-circle" color="white"></box-icon>
+                    </Button>
+                </Row>
+            </Header>
             
             <ContainerScroll>
                 {
