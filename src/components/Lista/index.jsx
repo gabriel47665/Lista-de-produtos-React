@@ -9,6 +9,28 @@ const Lista = () => {
 
     const [lista, setLista] = useState([]);
     const [item, setItem] = useState('');
+    const [alerta, setAlerta] = useState({});
+
+    const inserirItem = () => {
+        let empty = item === '';
+        let exist = lista.find(cadaItem => cadaItem === item);
+        if(empty){
+            setAlerta({titulo:"Alerta", message:"Digite algo para salvar", active: true});
+            setTimeout(() => {
+                setAlerta({...alerta, active: false})
+            }, 3000)
+            return;
+        }
+        if(exist){
+            setAlerta({titulo:"Alerta", message:"Este item já existe!", active: true});
+            setTimeout(() => {
+                setAlerta({active: false})
+            }, 3000)
+            return;
+        }
+        setLista([...lista, item]); 
+        setItem('');
+    }
 
     const deletarItem = (produto) => {
         setLista(lista.filter(cadaProduto => cadaProduto != produto));
@@ -25,7 +47,7 @@ const Lista = () => {
                     value={item}
                     placeholder="Digite o nome do produto" 
                     onChange={(i) => setItem(i.target.value)}/>
-                    <Button className="outlined" onClick={() => {setLista([...lista, item]); setItem('');}}>
+                    <Button className="outlined" onClick={inserirItem}>
                         <box-icon name="plus-circle" color="white"></box-icon>
                     </Button>
                 </Row>
@@ -44,8 +66,8 @@ const Lista = () => {
                 }
             </ContainerScroll>
 
-            <Alert/>
-            
+            <Alert titulo={alerta.titulo} message={alerta.message} active={alerta.active}/>
+
         </>
     )
 } 
