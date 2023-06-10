@@ -1,8 +1,21 @@
-import React from 'react'
+import { useContext } from 'react';
 import styled from 'styled-components';
+import { LoginContext } from '../../App';
+import { useEffect } from 'react';
 
 
-const Alert = ({titulo = '', message = '', active}) => {
+const Alert = ({titulo = '', message = '', active = false}) => {
+
+    const { alerta, setAlerta } = useContext(LoginContext);
+
+    useEffect(() => {
+        if(alerta.active){
+            setTimeout(() => {
+                setAlerta({...alerta, active: false});
+            }, 3000)
+        }
+    }, [alerta])
+
     return(
         <>
             <Container className={active ? "active" : "false"}>
